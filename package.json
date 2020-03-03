@@ -12,6 +12,8 @@
     "@fortawesome/fontawesome-pro": "^5.12.1",
     "bulma": "^0.8.0",
     "classnames": "^2.2.6",
+    "crayon": "^6.0.1",
+    "crayon-svelte": "^6.0.0",
     "meteor-node-stubs": "^1.0.0",
     "moment": "^2.24.0",
     "nes.css": "^2.3.0",
