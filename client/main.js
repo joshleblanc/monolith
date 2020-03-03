@@ -1,6 +1,3 @@
-import App from './App.svelte';
-Meteor.startup(() => {
-  new App({
-    target: document.querySelector('main')
-  });
+import("meteor/monolith:famtime/client/main.js");
+Meteor.startup(async () => {
 });
