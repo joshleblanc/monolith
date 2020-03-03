@@ -4,9 +4,9 @@
     serversReady,
     usersReady
   } from "../stores/subscriptionStores";
-  import { User } from "/lib/User";
-  import { Game } from "/lib/Game";
-  import { Server } from "/lib/Server";
+  import { User } from "../../lib/User";
+  import { Game } from "../../lib/Game";
+  import { Server } from "../../lib/Server";
   import Loader from "../components/Loader";
   import Tracker from "../components/Tracker";
   import StyledPaper from "../components/StyledPaper";

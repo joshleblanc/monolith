@@ -1,13 +1,13 @@
 <script>
   import { eventsReady, gamesReady, serversReady } from '../stores/subscriptionStores';
   import { onDestroy } from 'svelte';
-  import { Event } from '/lib/Event';
+  import { Event } from '../../lib/Event';
   import HeaderPaper from '../components/HeaderPaper';
   import Tracker from '../components/Tracker';
   import Button from '../components/Button';
   import { Meteor } from 'meteor/meteor';
   import StyledPaper from '../components/StyledPaper';
-  import { User } from '/lib/User';
+  import { User } from '../../lib/User';
   import List from '../components/List';
   import ListItem from '../components/ListItem';
   import ListItemText from '../components/ListItemText';

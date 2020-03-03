@@ -5,7 +5,7 @@
   import { Server } from '../../lib/Server';
   import { Tracker } from 'meteor/tracker';
   import { Meteor } from 'meteor/meteor';
-  import { User } from '/lib/User';
+  import { User } from '../../lib/User';
   import { serversReady } from '../stores/subscriptionStores';
   import Loader from './Loader';
   import { onDestroy } from 'svelte';

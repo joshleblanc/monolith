@@ -9,8 +9,9 @@ import 'pickerjs/dist/picker.css';
 console.log("??");
 
 Meteor.startup(() => {
-  console.log("ABC");
-  new App({
+
+  const a = new App({
     target: document.querySelector('main')
   });
+  console.log(a);
 });

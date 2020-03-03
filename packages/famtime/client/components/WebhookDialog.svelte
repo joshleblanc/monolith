@@ -7,9 +7,9 @@
   import Loader from './Loader';
   import { webhooksReady } from '../stores/subscriptionStores';
   import { Tracker } from 'meteor/tracker';
-  import { User } from '/lib/User';
+  import { User } from '../../lib/User';
   import { onDestroy } from 'svelte';
-  import { Webhook } from '/lib/Webhook';
+  import { Webhook } from '../../lib/Webhook';
   import List from './List';
   import ListItem from './ListItem';
   import ListItemText from './ListItemText';

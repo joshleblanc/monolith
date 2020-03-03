@@ -8,8 +8,7 @@
   import EventForm from './pages/EventForm.svelte';
   import { currentUserReady } from './stores/subscriptionStores';
   import Server from './pages/Server';
-  import { Meteor } from 'meteor/meteor';
-  import { User } from '/lib/User';
+  import { User } from '../lib/User';
   import Event from './pages/Event';
   import { Tracker } from 'meteor/tracker';
   import LoginOverlay from './components/LoginOverlay';
@@ -48,6 +47,49 @@
     }
   }
 </style>
+
+<svelte:head>
+  <!-- Overriding some bulma styles -->
+  <style>
+
+    a {
+      color: black;
+    }
+
+    a:visited {
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .content h6 {
+      font-weight: unset;
+    }
+
+    .content h5 {
+      font-weight: unset;
+    }
+
+    .title {
+      font-weight: unset;
+    }
+
+    .content h4 {
+      font-weight: unset;
+    }
+
+    body {
+      font-size: 0.85rem;
+    }
+
+    .flatpickr-current-month {
+      font-size: 96%;
+      padding-top: 16px;
+    }
+  </style>
+</svelte:head>
 
 
 

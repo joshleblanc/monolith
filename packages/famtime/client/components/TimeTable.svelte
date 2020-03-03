@@ -2,7 +2,7 @@
   import moment from 'moment';
   import { Tracker } from 'meteor/tracker';
   import { User } from '../../lib/User';
-  import { daysOfWeek, times, toUtc } from '/lib/utils';
+  import { daysOfWeek, times, toUtc } from '../../lib/utils';
   import { onDestroy } from 'svelte';
 
   let user;

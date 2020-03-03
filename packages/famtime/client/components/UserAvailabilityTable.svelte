@@ -1,5 +1,5 @@
 <script>
-    import { daysOfWeek, times, toUtc } from '/lib/utils';
+    import { daysOfWeek, times, toUtc } from '../../lib/utils';
     import Dialog from './Dialog';
     import List from './List';
     import ListItem from './ListItem';

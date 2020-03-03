@@ -9,10 +9,18 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.6",
+    "@fortawesome/fontawesome-pro": "^5.12.1",
+    "bulma": "^0.8.0",
+    "classnames": "^2.2.6",
     "meteor-node-stubs": "^1.0.0",
     "moment": "^2.24.0",
+    "nes.css": "^2.3.0",
+    "pickerjs": "^1.2.1",
     "steamid": "^1.1.3",
-    "svelte": "^1.46.1"
+    "svelte": "^3.16.4",
+    "svelte-flatpickr": "^2.4.0",
+    "svelte-routing": "^1.4.1",
+    "yup": "^0.28.1"
   },
   "meteor": {
     "mainModule": {

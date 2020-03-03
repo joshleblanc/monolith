@@ -1,5 +1,5 @@
 <script>
-  import { User } from '/lib/User';
+  import { User } from '../../lib/User';
   import { Tracker } from 'meteor/tracker';
   import { onDestroy } from 'svelte';
   

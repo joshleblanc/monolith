@@ -6,8 +6,8 @@
   import { Tracker } from 'meteor/tracker';
   import { onDestroy } from 'svelte';
   import { Meteor } from 'meteor/meteor';
-  import { User } from '/lib/User';
-  import { Event } from '/lib/Event';
+  import { User } from '../../lib/User';
+  import { Event } from '../../lib/Event';
   import List from './List';
   import ListItemText from './ListItemText';
   import ListItem from './ListItem';

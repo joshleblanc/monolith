@@ -1,8 +1,8 @@
 import { readable, derived } from 'svelte/store';
 import { Tracker } from 'meteor/tracker';
 import { Meteor } from 'meteor/meteor';
-import { User } from '/lib/User';
-import { Webhook } from '/lib/Webhook';
+import { User } from '../../lib/User';
+import { Webhook } from '../../lib/Webhook';
 
 function sub(fn) {
     return readable(false, set => {

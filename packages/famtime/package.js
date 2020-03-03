@@ -21,10 +21,10 @@ Package.onUse(function(api) {
   api.use('http');
   api.use('littledata:synced-cron');
   api.use('percolate:migrations');
-  api.mainModule('server/main.js', ['server']);
-
-  api.addFiles('client/App.svelte');
-
+  // api.mainModule('server/main.js', ['server']);
+  api.mainModule('client/main.js', ['client'], { lazy: true });
+  api.mainModule('server/main.js', ['server'], { lazy: true });
+  // api.addFiles('client/App.svelte', ['client'], { lazy: true });
 });
 
 Package.onTest(function(api) {

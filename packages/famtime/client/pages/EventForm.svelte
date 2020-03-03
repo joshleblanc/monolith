@@ -3,16 +3,16 @@
     import TextField from "../components/TextField";
     import Autocomplete from "../components/autocomplete/Autocomplete";
     import {Tracker} from "meteor/tracker";
-    import {Server} from "/lib/Server";
-    import {Game} from "/lib/Game";
-    import {User} from "/lib/User";
+    import {Server} from "../../lib/Server";
+    import {Game} from "../../lib/Game";
+    import {User} from "../../lib/User";
     import {Meteor} from "meteor/meteor";
     import Timepicker from "../components/Timepicker";
     import moment from "moment";
-    import Button from "/client/components/Button";
+    import Button from "../components/Button";
     import Yup from "yup";
     import Dialog from '../components/Dialog';
-    import {Event} from "/lib/Event";
+    import {Event} from "../../lib/Event";
     import {format} from "../constants";
     import {
         gamesReady,
