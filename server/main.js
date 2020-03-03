@@ -1,1 +1,1 @@
-import "meteor/monolith:famtime/server/main.js";
+import "meteor/famtime/server/main.js";

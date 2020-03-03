@@ -7,7 +7,7 @@ const app = crayon.create();
 app.use(svelte.router());
 
 app.path('/famtime', async ctx => {
-  const { App } = await import("meteor/monolith:famtime/client/main.js");
+  const { App } = await import("meteor/famtime/client/main.js");
   new App({
     target: document.querySelector('main')
   });
