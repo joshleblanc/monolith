@@ -8,6 +8,8 @@ import { Webhook } from '../lib/Webhook';
 import SteamID from 'steamid';
 import './migrations';
 
+console.log("??");
+
 const discordReq = function(path, token) {
   const api_url = "https://discordapp.com/api";
   const response = HTTP.get(`${api_url}/${path}`, {

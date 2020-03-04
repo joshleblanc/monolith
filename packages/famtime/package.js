@@ -14,17 +14,6 @@ Package.onUse(function(api) {
   api.versionsFrom('1.9.2');
   api.use('svelte:compiler');
   api.use('ecmascript');
-  api.use('jagi:astronomy');
-  api.use('mongo');
-  api.use('lichthagel:accounts-discord');
-  api.use('service-configuration');
-  api.use('http');
-  api.use('littledata:synced-cron');
-  api.use('percolate:migrations');
-  // api.mainModule('server/main.js', ['server']);
-  api.mainModule('client/main.js', ['client'], { lazy: true });
-  api.mainModule('server/main.js', ['server'], { lazy: true });
-  // api.addFiles('client/App.svelte', ['client'], { lazy: true });
 });
 
 Package.onTest(function(api) {

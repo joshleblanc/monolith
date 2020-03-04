@@ -19,3 +19,10 @@ static-html
 dynamic-import
 svelte:compiler
 famtime
+ui
+jagi:astronomy
+percolate:migrations
+littledata:synced-cron
+http
+service-configuration
+lichthagel:accounts-discord
