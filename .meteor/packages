@@ -26,3 +26,7 @@ littledata:synced-cron
 http
 service-configuration
 lichthagel:accounts-discord
+gnashblade
+reactive-dict
+cereal:reactive-render
+accounts-password
