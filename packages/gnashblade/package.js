@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'ui',
+  name: 'gnashblade',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -12,14 +12,16 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.9.2');
-  api.use('svelte:compiler');
   api.use('ecmascript');
-  api.mainModule('ui.js');
 });
+Npm.depends({
+  "@babel/core": "7.4.3",
+  "@babel/plugin-proposal-decorators": "7.8.3"
+})
 
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('ui');
-  api.mainModule('ui-tests.js');
+  api.use('monolith:gnashblade');
+  api.mainModule('famtime-tests.js');
 });
