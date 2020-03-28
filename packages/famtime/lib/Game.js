@@ -4,7 +4,11 @@ import { Class } from 'meteor/jagi:astronomy';
 export const Games = new Mongo.Collection('games', { idGeneration: 'MONGO' });
 
 export function makeUrl(id, hash) {
-  return `http://media.steampowered.com/steamcommunity/public/images/apps/${id}/${hash}.jpg`;
+  if(hash) {
+    return `http://media.steampowered.com/steamcommunity/public/images/apps/${id}/${hash}.jpg`;
+  } else {
+    return null;
+  }
 }
 
 export const Game = Class.create({
@@ -16,17 +20,8 @@ export const Game = Class.create({
       index: 1
     },
     name: String,
-    playtime_forever: Number,
     img_icon_url: String,
-    img_logo_url: String,
-    has_community_visible_stats: {
-      type: Boolean,
-      optional: true
-    },
-    playtime_2weeks: {
-      type: Number,
-      optional: true
-    }
+    img_logo_url: String
   },
   helpers: {
     logoUrl() {
@@ -40,7 +35,6 @@ export const Game = Class.create({
 
 
 Game.findCommon = function(users) {
-  console.log("finding common");
   const userGames = users.map(u => u.games).flat();
   const counts = {};
   userGames.forEach(ug => {

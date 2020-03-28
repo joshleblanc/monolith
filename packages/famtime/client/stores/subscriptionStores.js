@@ -14,13 +14,13 @@ function sub(fn) {
 }
 
 export const currentUserReady = sub(() => {
-    return Meteor.subscribe('currentUser').ready();
+    return Meteor.subscribe('famtime.currentUser').ready();
 });
 
 export const webhooksReady = sub(() => {
     const user = User.current();
     if(user) {
-        return Meteor.subscribe('webhooks').ready();
+        return Meteor.subscribe('famtime.webhooks').ready();
     } else {
         return false;
     }

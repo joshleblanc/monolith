@@ -3,12 +3,10 @@ import { User } from '../lib/User';
 import { Server, Servers } from '../lib/Server';
 import { Game } from '../lib/Game';
 import { Event } from '../lib/Event';
-import { getGames } from '../lib/utils';
+import { getGames, getAllGames } from '../lib/utils';
 import { Webhook } from '../lib/Webhook';
 import SteamID from 'steamid';
 import './migrations';
-
-console.log("??");
 
 const discordReq = function(path, token) {
   const api_url = "https://discordapp.com/api";
@@ -20,7 +18,7 @@ const discordReq = function(path, token) {
   return response.data;
 };
 
-Meteor.publish('currentUser', function() {
+Meteor.publish('famtime.currentUser', function() {
   if(this.userId) {
     const user = Meteor.users.findOne(this.userId);
     const users = Meteor.users.find({
@@ -57,14 +55,80 @@ Meteor.publish('currentUser', function() {
         $in: user.servers
       }
     });
-    const games = Game.find({}, { sort: { name: 1 }});
+    const games = Game.find({
+      _id: {
+        $in: events.fetch().map(e => e.gameId)
+      }
+    });
     return [users, servers, events, games];
   } else {
     this.ready();
   }
 });
 
-Meteor.publish('webhooks', function() {
+Meteor.publish('famtime.common_games', function(users) {
+  if(!this.userId) {
+    throw new Meteor.Error("Not Authorized");
+  }
+  return Game.findCommon(users);
+});
+
+Meteor.publish('famtime.games', function(search, serverId) {
+  console.log("Running games publication");
+  if(this.userId) {
+    let games;
+    if(search.length > 0) {
+      games = Game.find({
+        name: new RegExp(`^${search}`, "i")
+      }, {
+        hint: "name_text"
+      }).fetch();
+    } else {
+      console.log("fetching games", serverId);
+      if(serverId) {
+        games = Game.find({
+          _id: {
+            $in: Server.findOne({ _id: serverId }).users().map(u => u.games).flat()
+          }
+        }).fetch();
+      }
+      console.log("done");
+    }
+    if(serverId) {
+      const counts = {};
+      const users = Meteor.users.find({
+        servers: {
+          $elemMatch: {
+            $eq: serverId
+          }
+        }
+      }).fetch();
+      games.forEach(game => {
+        counts[game._id] = users.filter(u => u.games.some(g => g.equals(game._id)) && u.servers.some(s => s.equals(serverId))).length;
+      });
+      const ids = games.sort((a,b) => {
+        const c = counts[a._id] === undefined ? 0 : counts[a._id];
+        const d = counts[b._id] === undefined ? 0 : counts[b._id];
+        return d - c;
+      });
+
+      return Game.find({
+        _id: {
+          $in: ids.slice(0, 20).map(g => g._id)
+        }
+      })
+    }
+    return Game.find({
+      name: new RegExp(`^${search}`, "i")
+    }, {
+      limit: 20
+    });
+  } else {
+    this.ready();
+  }
+});
+
+Meteor.publish('famtime.webhooks', function() {
   if(this.userId) {
     return Webhook.find({
       creatorId: this.userId
@@ -74,7 +138,7 @@ Meteor.publish('webhooks', function() {
   }
 });
 
-Meteor.publish('event', function(id) {
+Meteor.publish('famtime.event', function(id) {
   const event = Event.find({ _id: id });
   const users = Event.findOne({_id: id}).users();
 
@@ -145,7 +209,15 @@ SyncedCron.add({
   job: () => {
     Event.sendReminders();
   }
-})
+});
+
+SyncedCron.add({
+  name: "Sync steam games",
+  schedule: parser => parser.text("every 24 hours"),
+  job: () => {
+    getAllGames();
+  }
+});
 
 Meteor.startup(() => {
   Migrations.migrateTo('latest');

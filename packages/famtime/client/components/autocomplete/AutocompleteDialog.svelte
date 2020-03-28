@@ -1,16 +1,13 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import { fly } from 'svelte/transition';
     import Dialog from '../Dialog';
     import TextField from '../TextField';
-    import classnames from 'classnames';
     import List from '../List';
     import ListItem from '../ListItem';
     import ListItemAvatar from '../ListItemAvatar';
     import ListItemText from '../ListItemText';
     import ListItemPrimaryText from '../ListItemPrimaryText';
     import Avatar from '../Avatar';
-    import Button from '../Button';
 
     export let title = "";
     export let open = false;
@@ -18,6 +15,7 @@
     export let multiple = false;
     export let selected = [];
     export let sortingFn = null;
+    export let loading = false;
 
     const dispatch = createEventDispatcher();
 
@@ -44,6 +42,11 @@
 
         }
     }
+
+    function onSearchChange(e) {
+        search = e.target.value;
+        dispatch('searchChange', e.target.value);
+    }
 </script>
 
 <style>
@@ -60,8 +63,12 @@
 
 <Dialog open={open} title={title} on:close>
     <div class="list-container">
-        <TextField on:input={e => search = e.target.value} value={search} fullWidth autoFocus/>
-        <p>Type something to search</p>
+        <TextField on:input={onSearchChange} value={search} fullWidth autoFocus/>
+        {#if loading}
+            <p>Searching...</p>
+        {:else}
+            <p>Type something to search</p>
+        {/if}
         <div class="list-container">
             <List>
                 {#each filteredOptions as option}
@@ -72,7 +79,7 @@
                                     <Avatar src={option.image} />
                                 {:else}
                                     <Avatar>
-                                        {option.name.split(' ').map(c => c[0].toUpperCase()).join('')}
+                                        {option.name.split(' ').map(c => c[0].toUpperCase()).slice(0, 2).join('')}
                                     </Avatar>
                                 {/if}
                             </ListItemAvatar>

@@ -39,7 +39,7 @@
   let modalOpen = false;
 </script>
 
-<TextField 
+<TextField
     label={label}
     value={textFieldValue}
     on:click={() => modalOpen = true}
@@ -54,6 +54,7 @@
     open={modalOpen}
     label={label}
     multiple={multiple}
+    loading="{loading}"
     on:close={() => modalOpen = false}
     selected={selected}
     sortingFn={sortingFn}
@@ -72,6 +73,7 @@
         dispatch('change', selectedItem)
       }
     }}
+    on:searchChange={val => dispatch('searchChange', val.detail)}
     title={placeholder}
     options={options}
     name={name}

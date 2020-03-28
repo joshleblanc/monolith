@@ -1,8 +1,8 @@
 import { Class } from 'meteor/jagi:astronomy';
-import { Server } from '../lib/Server';
-import { Game } from '../lib/Game';
-import { getGames, getSteamIdFromVanity } from '../lib/utils';
-import { Event } from '../lib/Event';
+import { Server } from './Server';
+import { Game } from './Game';
+import { getGames, getSteamIdFromVanity } from './utils';
+import { Event } from './Event';
 
 export const User = Class.create({
   name: 'User',

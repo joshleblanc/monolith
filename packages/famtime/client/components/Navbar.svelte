@@ -7,6 +7,10 @@
   import { onDestroy } from 'svelte';
   import { User } from '../../lib/User';
   import { createEventDispatcher } from 'svelte';
+  import { ROUTER } from 'svelte-routing/src/contexts';
+  import { getContext } from "svelte";
+
+  $: console.log(getContext(ROUTER));
 
   export let mobileOpen;
 

@@ -13,6 +13,7 @@
   import { Tracker } from 'meteor/tracker';
   import LoginOverlay from './components/LoginOverlay';
   import FindGamesForm from './pages/FindGamesForm';
+  import Button from './components/Button';
 
   export let url = "";
   let mobileOpen = false;
@@ -96,7 +97,7 @@
 {#if $currentUserReady}
   {#if user}
     <div class="root" transition:fade>
-      <Router url="{url}">
+      <Router url="{url}" basepath="/famtime">
         <Navbar mobileOpen={mobileOpen} />
         <Sidebar mobileOpen={mobileOpen} />
         <div class="content">
