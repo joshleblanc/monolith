@@ -30,3 +30,5 @@ gnashblade
 reactive-dict
 cereal:reactive-render
 accounts-password
+secret-santa
+simple:json-routes

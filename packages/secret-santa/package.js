@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'gnashblade',
+  name: 'secret-santa',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -18,11 +18,4 @@ Package.onUse(function(api) {
 Npm.depends({
   "@babel/core": "7.4.3",
   "@babel/plugin-proposal-decorators": "7.8.3"
-})
-
-Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('monolith:gnashblade');
-  api.mainModule('famtime-tests.js');
 });

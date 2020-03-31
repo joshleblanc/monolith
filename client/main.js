@@ -19,6 +19,11 @@ app.path('/gnashblade/**', async ctx => {
   ReactDOM.render(<App />, document.querySelector('main'));
 });
 
+app.path('/secret-santa/**', async ctx => {
+  const { App } = await import("meteor/secret-santa/client/main.js");
+  ReactDOM.render(<App />, document.querySelector('main'));
+})
+
 Meteor.startup(() => {
   app.load();
 });
