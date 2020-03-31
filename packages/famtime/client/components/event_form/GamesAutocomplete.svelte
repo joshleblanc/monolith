@@ -7,6 +7,7 @@
     import {Game, makeUrl} from '../../../lib/Game';
     import { User } from '../../../lib/User';
     import { createEventDispatcher } from 'svelte';
+    import { Tracker } from 'meteor/tracker';
 
     export let helperText = "";
     export let selected;

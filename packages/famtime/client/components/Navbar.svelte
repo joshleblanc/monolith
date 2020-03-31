@@ -91,7 +91,7 @@
     </div>
     <h6>Famti.me</h6>
     {#if user}
-      <Link to="/events/new">
+      <Link to="events/new">
         <Button variant="primary">Create Event</Button>
       </Link>
     {:else}

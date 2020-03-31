@@ -43,7 +43,7 @@
         {#if !user.hasGames}
             <Button on:click={() => steamModalOpen = true}>Connect Steam</Button>
         {/if}
-        <Link to="/games/find">
+        <Link to="games/find">
           <Button>Find Games</Button>
         </Link>
         <Button variant="error" on:click={() => Meteor.logout()}>Logout</Button>

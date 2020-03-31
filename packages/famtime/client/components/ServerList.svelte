@@ -26,7 +26,7 @@
 
 <FixedHeightList>
   {#each servers as server}
-    <Link to="/servers/{server._id}">
+    <Link to="servers/{server._id}">
       <ServerListItem server={server} />
     </Link>
   {/each}

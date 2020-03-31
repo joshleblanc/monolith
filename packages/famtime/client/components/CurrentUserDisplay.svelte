@@ -27,7 +27,7 @@
 </style>
 
 {#if user}
-  <Link to="/profile">
+  <Link to="profile">
     <div class="container">
       <ListItem>
         <ListItemAvatar>

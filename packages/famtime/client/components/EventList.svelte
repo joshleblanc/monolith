@@ -25,7 +25,7 @@
         <p>No events</p>
     {:else}
         {#each events as event}
-            <Link to={`/events/${event._id.toHexString()}`}>
+            <Link to={`events/${event._id.toHexString()}`}>
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar src={event.game().iconUrl()}/>

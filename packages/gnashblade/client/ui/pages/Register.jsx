@@ -67,7 +67,7 @@ export default class extends React.Component {
                 )}
               </Formik>
               <Typography>
-                Already have an account? <Link to="/login">Login now!</Link>
+                Already have an account? <Link to="login">Login now!</Link>
               </Typography>
             </PaddedPaper>
         </Grid>

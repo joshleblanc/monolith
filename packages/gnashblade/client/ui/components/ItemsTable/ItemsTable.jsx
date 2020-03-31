@@ -141,7 +141,7 @@ export default class extends React.Component {
                       <ItemIcon item={d} />
                     </TableCell>
                     <TableCell>
-                      <Link to={`/items/${d.id}`}>
+                      <Link to={`items/${d.id}`}>
                         {d.name}
                       </Link>
                     </TableCell>

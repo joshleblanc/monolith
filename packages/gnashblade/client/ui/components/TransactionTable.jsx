@@ -149,7 +149,7 @@ export default class extends React.Component {
                       {d.created}
                     </TableCell>
                     <TableCell>
-                      <Link to={`/items/${item.id}`}>
+                      <Link to={`items/${item.id}`}>
                         {item.name}
                       </Link>
                     </TableCell>

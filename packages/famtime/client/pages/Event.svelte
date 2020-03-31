@@ -48,7 +48,7 @@
   <StyledPaper title={event.name}>
     <div class="columns">
       <div class="column">
-        <Link to={`/servers/${event.server()._id.toHexString()}`}>
+        <Link to={`servers/${event.server()._id.toHexString()}`}>
           <ListItem>
             <ListItemAvatar>
               <Avatar src={event.server().avatarUrl()} />
