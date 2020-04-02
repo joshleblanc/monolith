@@ -1,14 +1,15 @@
 import React from 'react';
-import PaddedPaper from '../components/PaddedPaper';
-import { Formik, Form, Field } from 'formik';
+import PaddedPaper from 'meteor/ui/components/PaddedPaper';
+import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-import { TextField } from 'formik-material-ui';
+import {TextField} from 'formik-material-ui';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { withSnackbar } from 'notistack';
-import { Meteor } from 'meteor/meteor';
-import { Link } from 'react-router-dom';
+import {withSnackbar} from 'notistack';
+import {Meteor} from 'meteor/meteor';
+import {Link} from 'react-router-dom';
+import { Content } from 'meteor/ui/components/base/Content';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -18,10 +19,11 @@ const validationSchema = Yup.object().shape({
 @withSnackbar
 export default class extends React.Component {
   render() {
-    const { enqueueSnackbar } = this.props;
-    return(
-      <Grid container justify="center">
-        <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
+    const {enqueueSnackbar} = this.props;
+    return (
+      <Content>
+        <Grid container justify="center">
+          <Grid item xs={12} sm={10} md={8} lg={6} xl={4}>
             <PaddedPaper>
               <Typography variant="h4">Login</Typography>
               <Formik
@@ -30,19 +32,19 @@ export default class extends React.Component {
                   password: '',
                 }}
                 validationSchema={validationSchema}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, {setSubmitting}) => {
                   Meteor.loginWithPassword(values.email, values.password, err => {
-                    if(err) {
+                    if (err) {
                       console.log(err);
-                      enqueueSnackbar(err.message, { variant: 'error' })
+                      enqueueSnackbar(err.message, {variant: 'error'})
                     } else {
-                      enqueueSnackbar("You're logged in!", { variant: 'success' })
+                      enqueueSnackbar("You're logged in!", {variant: 'success'})
                     }
                     setSubmitting(false);
                   })
                 }}
               >
-                {({ errors, touched }) => (
+                {({errors, touched}) => (
                   <Form>
                     <Field
                       name="email"
@@ -70,8 +72,10 @@ export default class extends React.Component {
                 Don't have an account? <Link to="register">Register now!</Link>
               </Typography>
             </PaddedPaper>
+          </Grid>
         </Grid>
-      </Grid>
+      </Content>
+
     )
   }
 }

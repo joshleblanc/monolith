@@ -5,10 +5,12 @@ import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import SnackbarProvider from "notistack/build/SnackbarProvider";
-import Layout from "./Layout";
+import Layout from "meteor/ui/components/Layout";
 import getTheme from './lib/theme';
 import {AppStoreContext} from './stores/AppStore';
 import { autorun } from 'meteor/cereal:reactive-render';
+import Routes from "./Routes";
+import DrawerItems from "./components/drawer/DrawerItems";
 
 @autorun
 export default class App extends React.Component {
@@ -19,14 +21,11 @@ export default class App extends React.Component {
     const { theme } = this.context;
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
-        <ThemeProvider theme={getTheme(theme)}>
-          <SnackbarProvider>
-              <CssBaseline/>
-              <BrowserRouter basename={"/secret-santa"}>
-                <Layout />
-              </BrowserRouter>
-          </SnackbarProvider>
-        </ThemeProvider>
+        <Layout
+          Routes={Routes}
+          DrawerItems={DrawerItems}
+          basename={"/secret-santa"}
+        />
       </MuiPickersUtilsProvider>
     );
   }

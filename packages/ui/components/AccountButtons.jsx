@@ -7,13 +7,18 @@ import Button from '@material-ui/core/Button';
 
 @autorun
 export default class extends React.Component {
+
+  logout = () => {
+    Meteor.logout();
+  }
+
   render() {
     if(Meteor.userId()) {
-      return <Button color="inherit" component={Link} to="/profile">Profile</Button>
+      return <Button color="inherit" onClick={this.logout}>Logout</Button>
     } else if(Meteor.isClient && Meteor.loggingIn()) {
       return <LinearProgress />
     } else {
-      return <Button color="inherit" component={Link} to="/Login">Login</Button>
+      return <Button color="inherit" component={Link} to="/login">Login</Button>
     }
   }
 }

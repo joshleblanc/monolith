@@ -1,5 +1,5 @@
 import React from 'react';
-import PaddedPaper from '../components/PaddedPaper';
+import PaddedPaper from '../../packages/gnashblade/client/ui/components/PaddedPaper';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { TextField } from 'formik-material-ui';

@@ -4,8 +4,8 @@ import FlippableItems from "../pages/FlippableItems";
 import LatestItems from "../pages/LatestItems";
 import FilteredItems from "../pages/FilteredItems";
 import ItemDetail from "../pages/ItemDetail";
-import Register from "../pages/Register";
-import Login from "../pages/Login";
+import Register from "../../../../../client/pages/Register";
+import Login from "../../../../../client/pages/Login";
 import Profile from "../pages/Profile";
 import CurrentTransactions from "../pages/CurrentTransactions";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import {Providers} from "./Providers";
 import {Root} from "./base/Root";
 import {Content} from "./base/Content";
@@ -8,21 +8,18 @@ import Navbar from "./Navbar";
 import Nav from "./Nav";
 
 export default props => {
-  const { basename, Routes, DrawerItems } = props;
+  const {basename, Routes, DrawerItems} = props;
   console.log(Routes, DrawerItems);
-  return(
-    <Providers>
+  return (
+    <>
+      <Navbar/>
       <BrowserRouter basename={basename}>
-        <Root>
-          <CssBaseline />
-          <Navbar />
-          <Nav><DrawerItems /></Nav>
-          <Content>
-            <Routes />
-          </Content>
-        </Root>
+        <Nav><DrawerItems/></Nav>
+        <Content>
+          <Routes/>
+        </Content>
       </BrowserRouter>
-    </Providers>
+    </>
 
   )
 };
