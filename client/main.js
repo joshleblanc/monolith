@@ -1,9 +1,7 @@
 import svelte from 'crayon-svelte';
-import crayon from 'crayon';
 import ReactDOM from 'react-dom';
 import React from 'react';
-
-const app = crayon.create();
+import { app } from 'meteor/cereal:ui/lib/crayon';
 
 app.use(svelte.router());
 
