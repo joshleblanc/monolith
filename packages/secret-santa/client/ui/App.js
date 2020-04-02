@@ -18,7 +18,6 @@ export default class App extends React.Component {
   state = {};
 
   render() {
-    const { theme } = this.context;
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <Layout

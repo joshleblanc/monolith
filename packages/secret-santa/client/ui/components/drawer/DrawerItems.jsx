@@ -11,6 +11,7 @@ import { routes } from '../../lib/constants';
 import AuthenticatedDrawerItems from "./AuthenticatedDrawerItems";
 import ThemeIcon from "@material-ui/icons/WbSunny";
 import {AppStoreContext} from "../../stores/AppStore";
+import { app } from 'meteor/cereal:ui/lib/crayon';
 
 const styles = theme => ({
   toolbar: theme.mixins.toolbar,
