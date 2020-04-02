@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'ui',
+  name: 'cereal:ui',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -12,7 +12,6 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.9.2');
-  api.use('svelte:compiler');
   api.use('ecmascript');
   api.mainModule('ui.js');
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import PaddedPaper from 'meteor/ui/components/PaddedPaper';
+import PaddedPaper from 'meteor/cereal:ui/components/PaddedPaper';
 import {Formik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import {TextField} from 'formik-material-ui';
@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import {withSnackbar} from 'notistack';
 import {Meteor} from 'meteor/meteor';
 import {Link} from 'react-router-dom';
-import { Content } from 'meteor/ui/components/base/Content';
+import { Content } from 'meteor/cereal:ui/components/base/Content';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),

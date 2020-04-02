@@ -1,10 +1,10 @@
 import {BrowserRouter, Route} from "react-router-dom";
-import { Providers } from 'meteor/ui/components/Providers';
+import { Providers } from 'meteor/cereal:ui/components/Providers';
 import React from "react";
 import Login from "./pages/Login";
-import { Root } from 'meteor/ui/components/base/Root';
+import { Root } from 'meteor/cereal:ui/components/base/Root';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Navbar from "meteor/ui/components/Navbar";
+import Navbar from "meteor/cereal:ui/components/Navbar";
 
 class Component extends React.Component {
   state = {

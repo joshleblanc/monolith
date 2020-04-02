@@ -2,7 +2,7 @@
 import { Tinytest } from "meteor/tinytest";
 
 // Import and rename a variable exported by ui.js.
-import { name as packageName } from "meteor/ui";
+import { name as packageName } from "meteor/cereal:ui";
 
 // Write your tests here!
 // Here is an example.

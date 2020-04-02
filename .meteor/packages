@@ -19,7 +19,6 @@ static-html
 dynamic-import
 svelte:compiler
 famtime
-ui
 jagi:astronomy
 percolate:migrations
 littledata:synced-cron
@@ -32,3 +31,4 @@ cereal:reactive-render
 accounts-password
 secret-santa
 simple:json-routes
+cereal:ui

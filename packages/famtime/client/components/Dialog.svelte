@@ -1,7 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import { fly } from 'svelte/transition';
-    import Button from 'meteor/ui/components/Button';
+    import Button from 'meteor/cereal:ui/components/Button';
     export let title = "";
     export let open = false;
 

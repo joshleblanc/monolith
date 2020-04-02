@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from 'meteor/ui/components/Layout';
+import Layout from 'meteor/cereal:ui/components/Layout';
 import {Routes} from "../components/Routes";
 import DrawerItems from "../components/nav/DrawerItems";
 
