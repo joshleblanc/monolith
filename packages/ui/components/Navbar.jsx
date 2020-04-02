@@ -8,9 +8,8 @@ import { State } from '../lib/state';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { autorun } from 'meteor/cereal:reactive-render';
-import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
 import AccountButtons from './AccountButtons';
+
 const styles = theme => ({
   appBar: {
     marginLeft: drawerWidth,
@@ -33,7 +32,8 @@ const styles = theme => ({
 @autorun
 export default class extends React.Component {
   render() {
-    const { classes } = this.props;
+    console.log(State.get('drawerOpen'));
+    const { classes, title } = this.props;
     return(
       <AppBar position={"fixed"} className={classes.appBar}>
         <Toolbar>
@@ -47,7 +47,7 @@ export default class extends React.Component {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Gnashblade
+            {title}
           </Typography>
           <div className={classes.grow} />
           <AccountButtons />

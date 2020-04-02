@@ -1,13 +1,13 @@
 import {BrowserRouter, Route} from "react-router-dom";
 import React from "react";
 
-class Gnashblade extends React.Component {
+class Component extends React.Component {
     state = {
         Component: null
     }
 
     async componentDidMount() {
-        const { App:Tmp } = await import("meteor/gnashblade/client/main.jsx");
+        const { App:Tmp } = await this.props.import();
         this.setState({ Component: Tmp });
     }
 
@@ -24,8 +24,11 @@ class Gnashblade extends React.Component {
 export default App = () => {
     return(
       <BrowserRouter>
-          <Route exact path={"/gnashblade"}>
-              <Gnashblade />
+          <Route path={"/gnashblade"}>
+              <Component import={() => import("meteor/gnashblade/client/main.jsx")}/>
+          </Route>
+          <Route path={"/secret-santa"}>
+              <Component import={() => import("meteor/secret-santa/client/main.js")} />
           </Route>
       </BrowserRouter>
     )

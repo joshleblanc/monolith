@@ -1,20 +1,14 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from '../components/Routes';
-import Common from '../entry_points/Common';
+import Layout from 'meteor/ui/components/Layout';
+import {Routes} from "../components/Routes";
+import DrawerItems from "../components/nav/DrawerItems";
 
 export default () => {
-  React.useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentNode.removeChild(jssStyles);
-    }
-  }, []);
   return(
-    <Common>
-      <BrowserRouter basename={"/gnashblade"}>
-        <Routes />
-      </BrowserRouter>
-    </Common>
+    <Layout
+      basename={"/gnashblade"}
+      Routes={Routes}
+      DrawerItems={DrawerItems}
+    />
   )
 }

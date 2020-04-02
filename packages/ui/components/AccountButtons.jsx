@@ -8,7 +8,6 @@ import Button from '@material-ui/core/Button';
 @autorun
 export default class extends React.Component {
   render() {
-    console.log(Meteor.userId());
     if(Meteor.userId()) {
       return <Button color="inherit" component={Link} to="/profile">Profile</Button>
     } else if(Meteor.isClient && Meteor.loggingIn()) {
