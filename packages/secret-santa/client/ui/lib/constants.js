@@ -1,6 +1,6 @@
 import HomeIcon from '@material-ui/icons/Home';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import SantaIcon from "../components/SantaIcon";
+import SantaIcon from "meteor/cereal:ui/components/icons/SantaIcon";
 export const drawerWidth = 240;
 
 export const routes = [
