@@ -7,9 +7,7 @@ app.use(svelte.router());
 
 app.path('/famtime/**', async ctx => {
   const { App } = await import("meteor/famtime/client/main.js");
-  new App({
-    target: document.querySelector('main')
-  });
+  ctx.mount(() => <App />)
 });
 
 app.path('/gnashblade/**', async ctx => {
